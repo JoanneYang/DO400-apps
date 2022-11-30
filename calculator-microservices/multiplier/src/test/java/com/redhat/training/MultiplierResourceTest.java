@@ -16,4 +16,17 @@ public class MultiplierResourceTest {
         solverService = mock(SolverService.class);
         multiplierResource = new MultiplierResource(solverService);
     }
+
+    @Test
+    public void multiplyTest() {
+	//Given
+        solverService = mock(SolverService.class);
+        multiplierResource = new MultiplierResource(solverService);
+
+	//When
+		
+
+	//Then
+	assertEquals(20,miltiplierResource.multiply(4,5));
+    }
 }
