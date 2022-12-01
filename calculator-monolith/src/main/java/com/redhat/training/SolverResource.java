@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 
 import com.redhat.training.operation.Add;
 import com.redhat.training.operation.Identity;
+import com.redhat.training.operation.Multiply;
 import com.redhat.training.operation.Operation;
 import com.redhat.training.operation.Substract;
 import com.redhat.training.service.SolverService;
@@ -27,13 +28,16 @@ public final class SolverResource implements SolverService {
     Substract substract;
 
     @Inject
+    Multiply multiply;
+
+    @Inject
     Identity identity;
 
     private List<Operation> operations;
 
     @PostConstruct
     public void buildOperationList() {
-        operations = List.of(substract, add, identity);
+        operations = List.of(substract, add, multiply, identity);
     }
 
     @Override

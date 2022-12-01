@@ -1,26 +1,22 @@
 package com.redhat.training.operation;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.function.BinaryOperator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 
-import com.redhat.training.service.SolverService;
+import main.java.com.redhat.training.operation.BinaryOperation;
+
 @ApplicationScoped
-public final class Substract implements Operation {
+public final class Substract extends BinaryOperation {
 
     private static final String REGEX = "(.+)\\-(.+)";
     private static final BinaryOperator<Float> OPERATOR = (lhs, rhs) -> lhs - rhs;
 
     public Substract() {
-        super();
+        super(OPERATOR, REGEX);
     }
 
+    /*
     @Override
     public Float apply(final String equation) {
         return solveGroups(equation).stream().reduce(OPERATOR).orElse(null);
@@ -45,5 +41,5 @@ public final class Substract implements Operation {
     private Float solve(final String equation) {
         return solverService.solve(equation);
     }
-
+    */
 }
