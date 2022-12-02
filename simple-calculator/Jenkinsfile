@@ -16,15 +16,6 @@ sh './mvnw clean test'
 }
 }
 }
-}
-post {
-failure {
-sendFailureAlert('team@example.com')
-}
-always {
-sendNotification('finished', 'team@example.com')
-}
-}
 stage('Check Style') {
 steps {
 dir('simple-calculator') {
@@ -37,6 +28,15 @@ unstable("${STAGE_NAME} stage failed!")
 }
 }
 }
+}
+}
+}
+post {
+failure {
+sendFailureAlert('team@example.com')
+}
+always {
+sendNotification('finished', 'team@example.com')
 }
 }
 }
