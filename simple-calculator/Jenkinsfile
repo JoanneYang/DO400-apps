@@ -39,6 +39,7 @@ unstable("${STAGE_NAME} stage failed!")
 }
 }
 }
+}
 
 void sendNotification(String action, String email) {
 mail to: "${email}",
@@ -56,5 +57,4 @@ void sendWarningAlert(String stage, String email) {
 mail to: "${email}",
 subject: "${stage} stage failed: ${currentBuild.fullDisplayName}",
 body: "The ${stage} stage failed: ${env.BUILD_URL}"
-}
 }
